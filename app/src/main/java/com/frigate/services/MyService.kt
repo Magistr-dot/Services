@@ -21,6 +21,7 @@ class MyService : Service() {
                 delay(1000)
                 log("Timer $i")
             }
+            stopSelf()
         }
 
         return super.onStartCommand(intent, flags, startId)
