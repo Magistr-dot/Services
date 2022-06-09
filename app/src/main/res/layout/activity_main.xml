@@ -34,11 +34,11 @@
         android:text="@string/intent_service" />
 
     <Button
-        android:id="@+id/b_job_dispatcher"
+        android:id="@+id/b_job_scheduler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/job_dispatcher" />
+        android:text="@string/job_scheduler" />
 
     <Button
         android:id="@+id/b_job_intent_service"
