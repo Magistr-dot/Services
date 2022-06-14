@@ -10,14 +10,13 @@ class MyIntentServicePlus : IntentService(NAME) {
     override fun onCreate() {
         super.onCreate()
         log("On create")
-
+        setIntentRedelivery(true)
 
     }
 
 
     override fun onDestroy() {
         log("On Destroy")
-        setIntentRedelivery(true)
         super.onDestroy()
     }
 

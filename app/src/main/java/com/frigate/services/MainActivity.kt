@@ -8,6 +8,8 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.work.ExistingWorkPolicy
+import androidx.work.WorkManager
 import com.frigate.services.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -54,6 +56,17 @@ class MainActivity : AppCompatActivity() {
 
             //For execute one process
             //jobScheduler.schedule(jobInfo)
+        }
+        binding.bJobIntentService.setOnClickListener {
+            MyJobIntentService.enqueue(this, page++)
+        }
+        binding.bWorkManager.setOnClickListener {
+            val workManager = WorkManager.getInstance(applicationContext)
+            workManager.enqueueUniqueWork(
+                MyWorker.WORK_NAME,
+                ExistingWorkPolicy.APPEND,
+                MyWorker.makeReq(page++)
+            )
         }
     }
 
